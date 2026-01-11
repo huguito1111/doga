@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOGGA - Yoga con Perros</title>
+    <title>DOGGA - Yoga con Perros | Equilibrio y Conexión Canina</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
+                    <div class="logo-icon">
+                        <div class="stone stone-1"></div>
+                        <div class="stone stone-2"></div>
+                        <div class="stone stone-3"></div>
+                    </div>
                     <span class="logo-text">DOGGA</span>
                 </div>
                 <nav class="nav">
-                    <button class="nav-toggle">Menú</button>
+                    <button class="nav-toggle" aria-label="Alternar navegación">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                     <ul class="nav-menu">
                         <li><a href="#home" class="nav-link">Inicio</a></li>
                         <li><a href="#about" class="nav-link">Nosotros</a></li>
@@ -27,39 +37,76 @@
     </header>
 
     <section id="home" class="hero">
+        <div class="hero-overlay"></div>
         <div class="container">
-            <h1 class="hero-title">DOGGA: Yoga con Perros</h1>
-            <p class="hero-subtitle">Equilibrio y conexión con tu mejor amigo.</p>
-            <button class="cta-button">¡Únete a nosotros!</button>
+            <div class="hero-content" data-aos="fade-up">
+                <h1 class="hero-title"><strong>DOGGA</strong><br> Yoga con <strong>Perros</strong>.</h1>
+                <p class="hero-subtitle">Descubre la armonía entre el equilibrio del yoga y la conexión con tu mejor amigo. <br> Una práctica única que <strong>combina mindfulness y bienestar canino.</strong></p>
+                <button class="cta-button">¡Únete a nosotros!</button>
+            </div>
         </div>
     </section>
+
+    <div class="scroll-indicator">
+        <div class="scroll-arrow">↓</div>
+        <span class="scroll-text">Conoce nuestro equipo.</span>
+    </div>
 
     <section id="about" class="who-we-are">
-        <div class="container">
-            <h2>Quiénes Somos</h2>
-            <p>Somos DOGGA, pioneros en yoga con perros. Unimos la práctica tradicional con el bienestar canino.</p>
-            <div style="background-color: #ccc; width: 100%; height: 200px; display: flex; align-items: center; justify-content: center;">Imagen Pendiente</div>
+        <div class="who-we-are-content">
+            <div class="who-we-are-left" data-aos="fade-right">
+                <div class="brand-logo">
+                    <div class="logo-icon large">
+                        <div class="stone stone-1"></div>
+                        <div class="stone stone-2"></div>
+                        <div class="stone stone-3"></div>
+                    </div>
+                    <span class="logo-text large">DOGGA</span>
+                </div>
+                <div class="description-box">
+                    <p>Somos DOGGA, pioneros en <strong>yoga con perros</strong>, una disciplina innovadora que une <strong>la práctica del yoga tradicional con el bienestar canino</strong>. Ofrecemos sesiones presenciales en espacios naturales y clases online, combinando técnicas milenarias con el vínculo especial entre humanos y perros, <strong>fomentando la calma, el equilibrio y la conexión con la naturaleza</strong>.</p>
+                </div>
+                <div class="see-more">
+                    <a href="#services">Ver más</a>
+                </div>
+            </div>
+            <div class="who-we-are-right" data-aos="fade-left">
+                <img src="https://higgsfield.ai/_next/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_361LNt6jpuRTSMHOaJ0tgcGRAGJ%2F290545c1-5c04-486e-bb97-acb827c5f3a3.png&w=1920&q=75" alt="Yoga con perros - Imagen de bienestar y conexión" class="who-we-are-image">
+            </div>
         </div>
     </section>
 
-    <section id="services" class="services-section">
+    <section id="services" class="how-to-start">
+        <div class="how-to-start-overlay"></div>
         <div class="container">
-            <h2>Nuestros Programas</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Principiantes</h3>
-                    <p>Bases del yoga con tu perro.</p>
-                    <button>Ver detalles</button>
+            <h2 class="section-title" data-aos="fade-up"> <strong>Nuestros</strong> Programas de Yoga con Perros:</h2>
+            
+            <div id="loading-spinner" class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Cargando programas...</p>
+            </div>
+            
+            <div id="cursos-listado" class="services-grid"></div>
+            
+            <div id="curso-detalle-modal" class="modal">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <div id="curso-detalle-content"></div>
                 </div>
-                <div class="service-card">
-                    <h3>Experiencia Completa</h3>
-                    <p>Programa intensivo en naturaleza.</p>
-                    <button>Ver detalles</button>
-                </div>
-                <div class="service-card">
-                    <h3>Meditación</h3>
-                    <p>Calma y conexión.</p>
-                    <button>Ver detalles</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-down">Conoce a nuestros <strong>Instructores</strong></h2>
+            
+            <div class="team-generator-container" data-aos="fade-up">
+                <p class="team-description">Nuestros compañeros caninos son parte fundamental de cada sesión.</p>
+                
+                <div id="team-member-container" class="team-member-container has-content" style="display: flex;">
+                    <img id="foto-miembro" src="https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg" alt="Compañero de yoga canino" class="team-member-image loaded">
+                    <p id="nombre-miembro" class="team-member-name">Max - Instructor Jefe</p>
                 </div>
             </div>
         </div>
@@ -67,11 +114,21 @@
 
     <footer id="contact" class="footer">
         <div class="container">
-            <p>Email: info@dogga.com</p>
-            <p>Tel: +34 912 345 678</p>
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <p class="contact-item">
+                        <a href="mailto:info@dogga.com" class="contact-link">
+                            <strong>Email:</strong> info@dogga.com
+                        </a>
+                    </p>
+                    <p class="contact-item">
+                        <a href="tel:+34912345678" class="contact-link">
+                            <strong>Teléfono:</strong> +34 912 345 678
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="main.js"></script>
-</body>
-</html>
+    <script
